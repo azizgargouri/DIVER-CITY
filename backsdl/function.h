@@ -1,0 +1,54 @@
+#ifndef FONCTION_H
+#define FONCTION_H
+#include <stdio.h>
+#include <stdlib.h>
+#include <SDL/SDL.h>
+#include <SDL/SDL_image.h>
+#include <SDL/SDL_mixer.h>
+#include <SDL/SDL_ttf.h>
+#define SCREEN_H 1080//512
+#define SCREEN_W 1920//1080
+typedef struct
+{
+	SDL_Rect pos1; //fin theb taffichi el taswira
+	SDL_Rect camera; //kadech theb twari mel taswira
+	SDL_Surface *img;  //etaswira
+	char ImgName[30]; //the name of the image
+	
+}backg;
+
+typedef struct
+{
+	char playername[20];
+	int score;
+	int time;
+}scoreinfo;
+
+typedef struct
+{
+	SDL_Surface *txt;
+	SDL_Rect textpos; 
+	SDL_Color textColor;
+	TTF_Font *police;
+}texte;
+
+typedef struct
+{
+	SDL_Surface *button;
+	SDL_Rect posButton;
+}btn;
+
+void initbackg(backg *back);
+void initialiser_texte(texte *txte);
+void afficher(backg back,SDL_Surface *screen);
+
+void animate_back(backg *b , SDL_Surface *screen);
+void initialiser_audiobref(Mix_Music*music);
+void scrolling (backg * b, int direction ); 
+void init_btn(btn *b);
+void display_btn(btn b, SDL_Surface *screen);
+void bestScore(char *filename, scoreinfo tab[100],SDL_Surface *screen);
+void showBestScore(scoreinfo t[], SDL_Surface *screen);
+#endif
+
+
