@@ -26,7 +26,7 @@ int collision;
 typedef struct 
 {
 	SDL_Surface* image_ennemi[8][2];
-	SDL_Rect pos_ennemi[8];
+	SDL_Rect pos_ennemi[8][2];
         SDL_Rect pos_ennemi_absolue;
 	SDL_Rect pos_frame;
 	int direction;
@@ -42,5 +42,5 @@ void initEnnemi(Ennemi *e);
 void afficherEnnemi(Ennemi e, SDL_Surface  * screen);
 void animerEnnemi( Ennemi * e);
 void move( Ennemi * e);
- int collisionBB( Ennemi * e ,SDL_Rect posp,  SDL_Rect pose);
- void moveIA( Ennemi * e); 
+int collisionBB( Ennemi * e ,SDL_Rect posp,  SDL_Rect pose);
+void moveIA( Ennemi * e); 

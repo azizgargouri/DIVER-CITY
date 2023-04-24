@@ -43,16 +43,22 @@ backg = IMG_Load("tokyo.png");  //backg
 {
   SDL_BlitSurface(backg,NULL,screen,&pos_backg);
   afficherEnnemi(e,screen); 
-  if(g==1)
-{
-   afficherEnnemi(e,screen); 
+ 
+ /* e.pos_frame.w=66.667 ;
+  e.pos_frame.h=100 ;
+  e.pos_frame.x=0 ;
+  e.pos_frame.y=0 ;
+  e.direction=1 ;
+  */
+ 
+
+  
     //saut(&e);
-}
-  if (g==2)
-{
-  afficherEnnemi(e,screen) ;
-   //afficherPerso ( p2,screen) ;
-}
+
+ 
+
+  
+   
    SDL_Flip(screen);
    SDL_PollEvent(&event);
 
@@ -67,18 +73,18 @@ backg = IMG_Load("tokyo.png");  //backg
           case SDL_KEYDOWN:
                switch(event.key.keysym.sym)
                  {  
-                    
+                      
                    case SDLK_UP:
-              
-                     e.pos_frame.w=66.667 ;
+               /* e.pos_frame.w=66.667 ;
                      e.pos_frame.h=100 ;
                      e.pos_frame.x=0 ;
                      e.pos_frame.y=0 ;
                      animerEnnemi(&e);
                      e.direction=1 ;
-
-                   
+  
  
+                   
+
                      if (e.pos_ennemi[0][0].x==520)
                      { 
                         e.direction=2 ;
@@ -87,7 +93,13 @@ backg = IMG_Load("tokyo.png");  //backg
                         e.pos_frame.x=333.335 ;
                         e.pos_frame.y=115 ;
 
-                     }
+                     } */
+              
+              
+              
+              
+              
+              animerEnnemi(&e);
              
                   // deplacerperso(&p,p.direction) ; 
                  move(&e);
@@ -124,23 +136,24 @@ backg = IMG_Load("tokyo.png");  //backg
           case SDLK_SPACE:
            e.pos_ennemi[0][0].y-=0.5;
             
-
+            
                    
           
             break ;
-            if (g==2)
+            if (g==2||g==1)
          {
              case SDLK_d:
                    e.pos_frame.w=66.667 ;
                      e.pos_frame.h=100 ;
                      e.pos_frame.x=0 ;
                      e.pos_frame.y=0 ;
-                     //animerPerso(&e) ;
-                     e.direction=1 ;
-
+                     animerEnnemi(&e) ;
+                     e.direction=1 ; 
+            
+            
                    
  
-                     if (e.pos_ennemi[0][0].x==520)
+                   /*  if (e.pos_ennemi[0][0].x==520)
                      { 
                         e.direction=2 ;
                         e.pos_frame.w=66.667 ;
@@ -148,7 +161,7 @@ backg = IMG_Load("tokyo.png");  //backg
                        e.pos_frame.x=333.335 ;
                         e.pos_frame.y=115 ;
 
-                     }
+                     }*/
              
                    //deplacerperso(&e2,e.direction) ; 
                    break ;
@@ -157,7 +170,7 @@ backg = IMG_Load("tokyo.png");  //backg
                  e.pos_frame.h=200;
                  e.pos_frame.x=333.335;
                  e.pos_frame.y=115;
-                 //animerPerso(&p2);
+                  animerEnnemi(&e);
                  e.direction=2;
  
                  if (e.pos_ennemi[0][0].x==0)
